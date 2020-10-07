@@ -91,7 +91,7 @@ class LivroDao {
     remove(id) {
 
         return new Promise((resolve, reject) => {
-            this._db.run(
+            this._db.get(
                 `
                     DELETE 
                     FROM livros
