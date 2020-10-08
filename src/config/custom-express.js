@@ -5,6 +5,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+const { check, validationResult } = require('express-validator/check');
 
 app.use('/estatico', express.static('src/app/public'));
 
