@@ -7,6 +7,9 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const { check, validationResult } = require('express-validator/check');
 
+const sessaoAutenticacao = require('./sessao-autenticacao');
+sessaoAutenticacao(app);
+
 app.use('/estatico', express.static('src/app/public'));
 
 app.use(bodyParser.urlencoded({
@@ -34,8 +37,9 @@ app.use(function (req, resp, next) {
 
 });
 
-app.use(function (erro, req, resp, next) {
-  return resp.status(500).marko(
+app.use(function (erro, req, resp, next) {  
+  console.log(erro);
+  return resp.status(500).marko(      
       templates.base.erro500
   );
 
