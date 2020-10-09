@@ -38,7 +38,6 @@ app.use(function (req, resp, next) {
 });
 
 app.use(function (erro, req, resp, next) {  
-  console.log(erro);
   return resp.status(500).marko(      
       templates.base.erro500
   );
